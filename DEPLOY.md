@@ -22,7 +22,13 @@ Build for the repository subpath before publishing:
 ASTRO_SITE=https://YOUR_USERNAME.github.io ASTRO_BASE=/YOUR_REPOSITORY npm run build
 ```
 
-Replace both placeholders. Publish the contents of `dist/` using your preferred Pages workflow. If using the branch method, put those built contents at the root of a dedicated `gh-pages` branch, add an empty `.nojekyll` file, then select that branch and `/ (root)` in GitHub Pages settings. Keep the source and package files on `main`.
+For this repository, `site` and `base` are already configured in `astro.config.mjs`. After enabling GitHub Pages with **Deploy from a branch** and selecting `gh-pages` / `/ (root)`, publish with:
+
+```bash
+npm run deploy
+```
+
+This runs the build and publishes `dist/` to the `gh-pages` branch, including `.nojekyll`. Run it from a checkout with permission to push to the repository. Alternatively, replace both placeholders above and publish the contents of `dist/` using another Pages workflow. Keep the source and package files on `main`.
 
 For a username site (`YOUR_USERNAME.github.io` repository) or root custom domain, omit `ASTRO_BASE`; it defaults to `/`.
 
